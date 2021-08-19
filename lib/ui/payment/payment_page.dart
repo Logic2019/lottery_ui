@@ -24,6 +24,7 @@ class _PaymentPageState extends State<PaymentPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              //title and back
               Padding(
                 padding: const EdgeInsets.only(
                     left: sixteenDp, top: sixteenDp, right: tenDp),
@@ -78,7 +79,6 @@ class _PaymentPageState extends State<PaymentPage> {
 
   Widget buildContainer() {
     return Container(
-      // height: twoHundredDp,
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(horizontal: sixteenDp),
       decoration: BoxDecoration(
@@ -89,7 +89,7 @@ class _PaymentPageState extends State<PaymentPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: sixDp),
+            padding: const EdgeInsets.only(top: thirtyDp),
             child: Text(
               selectNumbers,
               style: TextStyle(color: Colors.black45, fontSize: eighteenDp),
@@ -107,7 +107,7 @@ class _PaymentPageState extends State<PaymentPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: sixDp),
+            padding: const EdgeInsets.only(top: sixteenDp, bottom: sixteenDp),
             child: Text(
               numbersOfDraw,
               style: TextStyle(
@@ -134,9 +134,9 @@ class _PaymentPageState extends State<PaymentPage> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(
+          /*   SizedBox(
             height: tenDp,
-          ),
+          ),*/
           Text(
             price,
             style: TextStyle(
@@ -152,6 +152,7 @@ class _PaymentPageState extends State<PaymentPage> {
     );
   }
 
+  //rounded numbers
   Widget buildRoundContainerWithNumber(number) {
     return Container(
       width: thirtyDp,
@@ -168,14 +169,17 @@ class _PaymentPageState extends State<PaymentPage> {
     );
   }
 
+  //payment button
   Widget buildPaymentButton() {
     return Container(
       width: MediaQuery.of(context).size.width,
+      height: fortyEightDp,
       margin: EdgeInsets.symmetric(horizontal: fortyEightDp),
       child: MaterialButton(
         onPressed: () {},
         child: Text(
           paymentNow,
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         textColor: Colors.indigo,
         color: Colors.white,
