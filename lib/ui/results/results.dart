@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottery_ui/model/dropdown_items.dart';
 
@@ -56,22 +57,69 @@ class _ResultsPageState extends State<ResultsPage> {
         elevation: 0,
         backgroundColor: Color(0xFF4736B5),
       ),
-      body: Align(
-        alignment: Alignment.center,
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: 500,
-          margin: EdgeInsets.symmetric(horizontal: twentyFourDp),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(twentyFourDp)),
-          child: Column(
-            children: [
-              buildDropdown(),
-              buildDate(),
-            ],
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+                left: sixteenDp, top: sixteenDp, right: tenDp),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
+                Text(
+                  seeResults,
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
           ),
-        ),
+          Align(
+            alignment: Alignment.center,
+            child: Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: fourHundredDp,
+                margin: EdgeInsets.symmetric(horizontal: twentyFourDp),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(twentyFourDp)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: twentyFourDp,
+                    ),
+                    buildDropdown(),
+                    buildDate(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: thirtyDp, vertical: tenDp),
+                      child: Text(
+                        enterYourNumber,
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        buildRoundContainerWithNumber("05"),
+                        buildRoundContainerWithNumber("09"),
+                        buildRoundContainerWithNumber(12),
+                        buildRoundContainerWithNumber(18),
+                        buildRoundContainerWithNumber(21),
+                      ],
+                    ),
+                    buildResultsButton()
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -137,5 +185,43 @@ class _ResultsPageState extends State<ResultsPage> {
             )
           ],
         ));
+  }
+
+  //numbers to select
+  Widget buildRoundContainerWithNumber(number) {
+    return Container(
+      width: fortyDp,
+      height: fortyDp,
+      margin: EdgeInsets.symmetric(horizontal: fourDp, vertical: tenDp),
+      decoration: BoxDecoration(
+          color: Colors.indigoAccent.withOpacity(0.1),
+          border:
+              Border.all(width: 1, color: Colors.indigoAccent.withOpacity(0.1)),
+          borderRadius: BorderRadius.circular(twentyFourDp)),
+      child: Center(
+          child: Text(
+        "$number",
+        style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+      )),
+    );
+  }
+
+  //see results button
+  Widget buildResultsButton() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: fortyEightDp,
+      margin: EdgeInsets.symmetric(horizontal: sixteenDp, vertical: thirtyDp),
+      child: MaterialButton(
+        onPressed: () {},
+        child: Text(
+          seeResults,
+        ),
+        textColor: Colors.white,
+        color: Colors.indigo,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(twentyDp)),
+      ),
+    );
   }
 }
