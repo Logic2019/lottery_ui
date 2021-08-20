@@ -17,7 +17,7 @@ class Lottery {
       this.time});
 }
 
-//dummy list from UI
+//dummy list for  UI testing
 List<Lottery> lotteryList = [
   Lottery(
       image: 'assets/images/im.png',
@@ -54,11 +54,11 @@ List<Lottery> lotteryList = [
       price: lotteryPrice,
       flag: 'assets/images/france.png',
       time: time),
-  Lottery(
+  /*  Lottery(
       image: 'assets/images/im.png',
       title: superBall,
       subtitle: jackPort,
       price: lotteryPrice,
       flag: 'assets/images/canada.png',
-      time: time),
+      time: time),*/
 ];
