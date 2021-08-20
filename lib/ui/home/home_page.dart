@@ -17,37 +17,106 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFF4736B5),
-        title: Text(lotteryTicket),
-        centerTitle: true,
+        toolbarHeight: 0,
       ),
-      backgroundColor: Color(0xFF4736B5),
+      backgroundColor: Colors.white,
       body: Container(
-        margin: EdgeInsets.only(top: thirtyDp),
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(
-                width: 1, color: Colors.indigoAccent.withOpacity(0.1)),
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(thirtyDp),
-                topRight: Radius.circular(thirtyDp))),
-        child: buildListItems(lotteryList),
+          color: Colors.white,
+        ),
+        child: Stack(
+          children: [
+            Container(
+              height: 150,
+              decoration: BoxDecoration(color: Color(0xFF4736B5)),
+              child: Align(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: thirtyDp),
+                  child: Text(
+                    lotteryTicket,
+                    style: TextStyle(fontSize: sixteenDp, color: Colors.white),
+                  ),
+                ),
+                alignment: Alignment.topCenter,
+              ),
+            ),
+            Expanded(child: buildListItems(lotteryList)),
+          ],
+        ),
+      ),
+
+      //NB : Bottom nav implementation might change because images here are not dynamically changed .
+      // Thus because its just for UI showcase
+      bottomNavigationBar: ClipPath(
+        clipper: CustomBottomNavClipper(),
+        child: Container(
+          height: 80,
+          padding: EdgeInsets.only(top: 2),
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            color: Color(0xFF4736B5),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: fortyDp,
+                width: fortyDp,
+                margin: EdgeInsets.only(top: twentyFourDp, bottom: eightDp),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(thirtyDp))),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.ac_unit,
+                      color: Color(0xFF4736B5),
+                    )),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: eightDp),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.home_outlined,
+                      color: Colors.white,
+                    )),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: eightDp),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.person_outline,
+                      color: Colors.white,
+                    )),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 
   Widget buildListItems(List<Lottery> lottery) {
     return Container(
-      //  padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(fortyDp),
+              topRight: Radius.circular(fortyDp))),
       margin: EdgeInsets.only(
-        top: fortyDp,
+        top: hundredDp,
       ),
       child: ListView.builder(
         itemBuilder: (context, index) {
           return Column(
             children: [
               ListTile(
-                horizontalTitleGap: 8,
+                horizontalTitleGap: eightDp,
+                minVerticalPadding: 0.1,
                 leading: Image.asset(lottery[index].image),
                 title: Column(
                   children: [
@@ -58,12 +127,13 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 20.0),
+                              padding: const EdgeInsets.only(top: twentyDp),
                               child: Flexible(
                                   child: Text(
                                 lottery[index].title,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: twentyDp),
                               )),
                             ),
                             Padding(
@@ -75,15 +145,15 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: 20, top: 12),
+                              padding: const EdgeInsets.only(
+                                  bottom: twentyDp, top: twelveDp),
                               child: Flexible(
                                   child: Text(
                                 lottery[index].price,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.indigo,
-                                    fontSize: 16),
+                                    fontSize: sixteenDp),
                               )),
                             ),
                           ],
@@ -137,5 +207,23 @@ class _HomePageState extends State<HomePage> {
         itemCount: lotteryList.length,
       ),
     );
+  }
+}
+
+//custom shape for bottom navigation items
+class CustomBottomNavClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, 80);
+    path.quadraticBezierTo(size.width / 2, -50, size.width, 80);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
   }
 }
