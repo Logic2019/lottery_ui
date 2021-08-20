@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class ViewResults extends StatefulWidget {
+  static const routeName = '/viewResults';
+
   const ViewResults({Key? key}) : super(key: key);
 
   @override
@@ -26,9 +28,14 @@ class _ViewResultsState extends State<ViewResults> {
                 left: sixteenDp, top: sixteenDp, right: tenDp),
             child: Row(
               children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  ),
                 ),
                 Text(
                   yourResults,

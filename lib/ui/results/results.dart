@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottery_ui/model/dropdown_items.dart';
+import 'package:lottery_ui/ui/results/view_results.dart';
 
 import '../../constants.dart';
 
 class ResultsPage extends StatefulWidget {
+  static const routeName = '/results';
+
   const ResultsPage({Key? key}) : super(key: key);
 
   @override
@@ -64,9 +67,14 @@ class _ResultsPageState extends State<ResultsPage> {
                 left: sixteenDp, top: sixteenDp, right: tenDp),
             child: Row(
               children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  ),
                 ),
                 Text(
                   seeResults,
@@ -217,7 +225,10 @@ class _ResultsPageState extends State<ResultsPage> {
       height: fortyEightDp,
       margin: EdgeInsets.symmetric(horizontal: sixteenDp, vertical: thirtyDp),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => ViewResults()));
+        },
         child: Text(
           seeResults,
         ),

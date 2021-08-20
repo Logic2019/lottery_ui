@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lottery_ui/model/lottery.dart';
+import 'package:lottery_ui/ui/choose_number/choose_number.dart';
 
 import '../../constants.dart';
 
 class HomePage extends StatefulWidget {
+  static const routeName = '/home';
+
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -182,7 +185,10 @@ class _HomePageState extends State<HomePage> {
                 trailing: Container(
                   margin: EdgeInsets.only(top: twentyDp),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ChooseNumber()));
+                    },
                     child: Text(
                       playNow,
                     ),

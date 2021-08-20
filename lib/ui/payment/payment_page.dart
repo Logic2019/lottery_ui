@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottery_ui/ui/results/results.dart';
 
 import '../../constants.dart';
 
 class PaymentPage extends StatefulWidget {
+  static const routeName = '/paymentPage';
+
   const PaymentPage({Key? key}) : super(key: key);
 
   @override
@@ -30,9 +33,14 @@ class _PaymentPageState extends State<PaymentPage> {
                     left: sixteenDp, top: sixteenDp, right: tenDp),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                      ),
                     ),
                     Text(
                       payment,
@@ -176,7 +184,10 @@ class _PaymentPageState extends State<PaymentPage> {
       height: fortyEightDp,
       margin: EdgeInsets.symmetric(horizontal: fortyEightDp),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => ResultsPage()));
+        },
         child: Text(
           paymentNow,
           style: TextStyle(fontWeight: FontWeight.bold),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lottery_ui/ui/payment/payment_page.dart';
 
 import '../../constants.dart';
 
 class ChooseNumber extends StatefulWidget {
+  static const routeName = '/chooseNumber';
+
   const ChooseNumber({Key? key}) : super(key: key);
 
   @override
@@ -32,9 +35,14 @@ class _ChooseNumberState extends State<ChooseNumber> {
                 left: sixteenDp, top: tenDp, right: tenDp),
             child: Row(
               children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  ),
                 ),
                 Text(
                   chooseNumber,
@@ -233,7 +241,10 @@ class _ChooseNumberState extends State<ChooseNumber> {
       height: fortyEightDp,
       margin: EdgeInsets.symmetric(horizontal: sixtyDp, vertical: twentyDp),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => PaymentPage()));
+        },
         child: Text(
           makePayment,
         ),
