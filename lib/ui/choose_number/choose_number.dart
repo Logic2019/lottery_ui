@@ -222,7 +222,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: fortyEightDp,
-      margin: EdgeInsets.symmetric(horizontal: thirtySixDp, vertical: twentyDp),
+      margin: EdgeInsets.symmetric(horizontal: sixtyDp, vertical: twentyDp),
       child: MaterialButton(
         onPressed: () {},
         child: Text(
