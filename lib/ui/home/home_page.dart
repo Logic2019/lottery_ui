@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.topCenter,
               ),
             ),
-            Expanded(child: buildListItems(lotteryList)),
+            buildListItems(lotteryList),
           ],
         ),
       ),
@@ -128,13 +128,11 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(top: twentyDp),
-                              child: Flexible(
-                                  child: Text(
+                              child: Text(
                                 lottery[index].title,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: twentyDp),
-                              )),
+                                    fontWeight: FontWeight.bold, fontSize: 16),
+                              ),
                             ),
                             Padding(
                               padding:
@@ -147,14 +145,13 @@ class _HomePageState extends State<HomePage> {
                             Padding(
                               padding: const EdgeInsets.only(
                                   bottom: twentyDp, top: twelveDp),
-                              child: Flexible(
-                                  child: Text(
+                              child: Text(
                                 lottery[index].price,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.indigo,
                                     fontSize: sixteenDp),
-                              )),
+                              ),
                             ),
                           ],
                         ),

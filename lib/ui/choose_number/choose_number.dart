@@ -38,7 +38,8 @@ class _ChooseNumberState extends State<ChooseNumber> {
                 ),
                 Text(
                   chooseNumber,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w600),
                 )
               ],
             ),
@@ -97,9 +98,9 @@ class _ChooseNumberState extends State<ChooseNumber> {
           borderRadius: BorderRadius.circular(twentyFourDp)),
       child: Center(
           child: Text(
-        "$number",
+            "$number",
         style:
-            TextStyle(color: Colors.indigoAccent, fontWeight: FontWeight.w400),
+            TextStyle(color: Colors.indigoAccent, fontWeight: FontWeight.w700),
       )),
     );
   }
@@ -202,7 +203,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
                   number == 22 ||
                   number == 28 ||
                   number == 30
-              ? Colors.indigo
+              ? Color(0xFF4736B5)
               : Colors.white,
           border: Border.all(
             width: 1,
@@ -211,8 +212,16 @@ class _ChooseNumberState extends State<ChooseNumber> {
           borderRadius: BorderRadius.circular(twentyFourDp)),
       child: Center(
           child: Text(
-        "$number",
-        style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+            "$number",
+        style: TextStyle(
+            color: number == 12 ||
+                    number == 17 ||
+                    number == 22 ||
+                    number == 28 ||
+                    number == 30
+                ? Colors.white
+                : Colors.grey,
+            fontWeight: FontWeight.bold),
       )),
     );
   }
@@ -229,7 +238,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
           makePayment,
         ),
         textColor: Colors.white,
-        color: Colors.indigo,
+        color: Color(0xFF4736B5),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(twentyDp)),
       ),

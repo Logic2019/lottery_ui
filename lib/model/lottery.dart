@@ -24,14 +24,7 @@ List<Lottery> lotteryList = [
       title: superBall,
       subtitle: jackPort,
       price: lotteryPrice,
-      flag: 'assets/images/usa.png',
-      time: time),
-  Lottery(
-      image: 'assets/images/im.png',
-      title: superBall,
-      subtitle: jackPort,
-      price: lotteryPrice,
-      flag: 'assets/images/canada.png',
+      flag: 'assets/images/britain.png',
       time: time),
   Lottery(
       image: 'assets/images/im.png',
@@ -45,20 +38,20 @@ List<Lottery> lotteryList = [
       title: superBall,
       subtitle: jackPort,
       price: lotteryPrice,
-      flag: 'assets/images/china.png',
+      flag: 'assets/images/britain.png',
       time: time),
   Lottery(
       image: 'assets/images/im.png',
       title: superBall,
       subtitle: jackPort,
       price: lotteryPrice,
-      flag: 'assets/images/france.png',
+      flag: 'assets/images/britain.png',
       time: time),
-  /*  Lottery(
+  Lottery(
       image: 'assets/images/im.png',
       title: superBall,
       subtitle: jackPort,
       price: lotteryPrice,
-      flag: 'assets/images/canada.png',
-      time: time),*/
+      flag: 'assets/images/britain.png',
+      time: time),
 ];

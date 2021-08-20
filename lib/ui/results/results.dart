@@ -175,7 +175,11 @@ class _ResultsPageState extends State<ResultsPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: eightDp),
-                  child: Text(date),
+                  child: Text(
+                    date,
+                    style: TextStyle(
+                        color: Colors.grey, fontWeight: FontWeight.w600),
+                  ),
                 )
               ],
             ),
@@ -200,8 +204,8 @@ class _ResultsPageState extends State<ResultsPage> {
           borderRadius: BorderRadius.circular(twentyFourDp)),
       child: Center(
           child: Text(
-        "$number",
-        style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w400),
+            "$number",
+        style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
       )),
     );
   }
@@ -218,7 +222,7 @@ class _ResultsPageState extends State<ResultsPage> {
           seeResults,
         ),
         textColor: Colors.white,
-        color: Colors.indigo,
+        color: Color(0xFF4736B5),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(twentyDp)),
       ),
