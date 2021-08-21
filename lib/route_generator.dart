@@ -5,6 +5,7 @@ import 'package:lottery_ui/ui/payment/payment_page.dart';
 import 'package:lottery_ui/ui/results/results.dart';
 import 'package:lottery_ui/ui/results/view_results.dart';
 
+///Routing class for page navigation
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -35,7 +36,7 @@ class RouteGenerator {
     }
   }
 
-  //error page ..
+  //error page  .. in-case a route false
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
