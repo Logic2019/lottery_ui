@@ -44,7 +44,10 @@ class _PaymentPageState extends State<PaymentPage> {
                     ),
                     Text(
                       payment,
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: eighteenDp,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -52,7 +55,7 @@ class _PaymentPageState extends State<PaymentPage> {
               // SizedBox(height: fiftyDp,),
               //time
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: fiftyDp),
+                padding: const EdgeInsets.only(top: fiftyDp, bottom: thirtyDp),
                 child: Center(
                   child: Text(
                     twoPm,
@@ -90,17 +93,19 @@ class _PaymentPageState extends State<PaymentPage> {
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(horizontal: sixteenDp),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(twentyFourDp)),
+          color: Colors.white, borderRadius: BorderRadius.circular(40)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: thirtyDp),
+            padding: const EdgeInsets.only(top: thirtyDp, bottom: sixDp),
             child: Text(
               selectNumbers,
-              style: TextStyle(color: Colors.black45, fontSize: eighteenDp),
+              style: TextStyle(
+                  color: Colors.black45,
+                  fontSize: twentyDp,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
@@ -108,10 +113,10 @@ class _PaymentPageState extends State<PaymentPage> {
             child: Text(
               numbers,
               style: TextStyle(
-                  letterSpacing: 3,
+                  letterSpacing: 1,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: twentyFourDp),
+                  fontSize: 28),
             ),
           ),
           Padding(
@@ -121,7 +126,7 @@ class _PaymentPageState extends State<PaymentPage> {
               style: TextStyle(
                   color: Colors.black45,
                   fontWeight: FontWeight.bold,
-                  fontSize: sixteenDp),
+                  fontSize: 20),
             ),
           ),
           Row(
@@ -138,7 +143,7 @@ class _PaymentPageState extends State<PaymentPage> {
               possibleWinners,
               style: TextStyle(
                   color: Colors.black45,
-                  fontSize: sixteenDp,
+                  fontSize: twentyDp,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -153,7 +158,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: thirtyDp,
+            height: fortyDp,
           ),
         ],
       ),
@@ -163,16 +168,19 @@ class _PaymentPageState extends State<PaymentPage> {
   //rounded numbers
   Widget buildRoundContainerWithNumber(number) {
     return Container(
-      width: thirtyDp,
-      height: thirtyDp,
-      margin: EdgeInsets.symmetric(horizontal: fourDp, vertical: tenDp),
+      width: 42,
+      height: 42,
+      margin: EdgeInsets.symmetric(horizontal: tenDp, vertical: sixteenDp),
       decoration: BoxDecoration(
           color: Color(0xFF4736B5),
           borderRadius: BorderRadius.circular(twentyFourDp)),
       child: Center(
           child: Text(
         "$number",
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            fontSize: twentyDp),
       )),
     );
   }
@@ -182,7 +190,7 @@ class _PaymentPageState extends State<PaymentPage> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: fortyEightDp,
-      margin: EdgeInsets.symmetric(horizontal: fortyEightDp),
+      margin: EdgeInsets.symmetric(horizontal: eightyDp),
       child: MaterialButton(
         onPressed: () {
           Navigator.of(context)
@@ -190,12 +198,12 @@ class _PaymentPageState extends State<PaymentPage> {
         },
         child: Text(
           paymentNow,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: eighteenDp),
         ),
-        textColor: Colors.indigo,
+        textColor: Color(0xFF4736B5),
         color: Colors.white,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(twentyDp)),
+            borderRadius: BorderRadius.circular(thirtyDp)),
       ),
     );
   }
