@@ -78,7 +78,10 @@ class _ResultsPageState extends State<ResultsPage> {
                 ),
                 Text(
                   seeResults,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: eighteenDp,
+                      fontWeight: FontWeight.bold),
                 )
               ],
             ),
@@ -202,8 +205,8 @@ class _ResultsPageState extends State<ResultsPage> {
   //numbers to select
   Widget buildRoundContainerWithNumber(number) {
     return Container(
-      width: fortyDp,
-      height: fortyDp,
+      width: fortyEightDp,
+      height: fortyEightDp,
       margin: EdgeInsets.symmetric(horizontal: fourDp, vertical: tenDp),
       decoration: BoxDecoration(
           color: Colors.indigoAccent.withOpacity(0.1),
@@ -212,7 +215,7 @@ class _ResultsPageState extends State<ResultsPage> {
           borderRadius: BorderRadius.circular(twentyFourDp)),
       child: Center(
           child: Text(
-            "$number",
+        "$number",
         style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
       )),
     );
@@ -231,11 +234,11 @@ class _ResultsPageState extends State<ResultsPage> {
         },
         child: Text(
           seeResults,
+          style: TextStyle(fontSize: twentyDp),
         ),
         textColor: Colors.white,
         color: Color(0xFF4736B5),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(twentyDp)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(36)),
       ),
     );
   }
