@@ -227,6 +227,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
     );
   }
 
+  //rounded buttons
   Widget buildRoundContainerWithNumber(number) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: eightDp, vertical: eightDp),
@@ -269,6 +270,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
       margin: EdgeInsets.symmetric(horizontal: sixtyDp, vertical: twentyDp),
       child: MaterialButton(
         onPressed: () {
+          //navigate to page
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => PaymentPage()));
         },
