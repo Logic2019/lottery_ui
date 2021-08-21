@@ -142,7 +142,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
                     //time and drop down
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: thirtyDp, horizontal: twentyDp),
+                          vertical: fiftyDp, horizontal: twentyDp),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,7 +153,9 @@ class _ChooseNumberState extends State<ChooseNumber> {
                             child: Text(
                               twoPm,
                               style: TextStyle(
-                                  color: Colors.black, fontSize: twentyDp),
+                                  color: Colors.black45,
+                                  fontSize: twentyDp,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                           //dropdown
@@ -206,12 +208,18 @@ class _ChooseNumberState extends State<ChooseNumber> {
             return DropdownMenuItem<String>(
               value: value,
               child: Text(value,
-                  style: TextStyle(color: Colors.black, fontSize: sixteenDp)),
+                  style: TextStyle(
+                      color: Colors.black45,
+                      fontSize: sixteenDp,
+                      fontWeight: FontWeight.bold)),
             );
           }).toList(),
           hint: Text(
             single,
-            style: TextStyle(color: Colors.black, fontSize: sixteenDp),
+            style: TextStyle(
+                color: Colors.black45,
+                fontSize: sixteenDp,
+                fontWeight: FontWeight.bold),
           ),
           onChanged: (String? value) {},
         ),
