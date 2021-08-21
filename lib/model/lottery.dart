@@ -54,4 +54,18 @@ List<Lottery> lotteryList = [
       price: lotteryPrice,
       flag: 'assets/images/britain.png',
       time: time),
+  Lottery(
+      image: 'assets/images/im.png',
+      title: superBall,
+      subtitle: jackPort,
+      price: lotteryPrice,
+      flag: 'assets/images/britain.png',
+      time: time),
+  Lottery(
+      image: 'assets/images/im.png',
+      title: superBall,
+      subtitle: jackPort,
+      price: lotteryPrice,
+      flag: 'assets/images/britain.png',
+      time: time),
 ];

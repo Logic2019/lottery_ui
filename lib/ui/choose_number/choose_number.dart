@@ -142,7 +142,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
                     //time and drop down
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: fiftyDp, horizontal: twentyDp),
+                          vertical: thirtyDp, horizontal: twentyDp),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,9 +172,9 @@ class _ChooseNumberState extends State<ChooseNumber> {
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 6,
-                          mainAxisSpacing: 8,
                           crossAxisSpacing: 2),
                     ),
+                    //  buildPaymentButton()
                   ],
                 ),
                 buildPaymentButton()
@@ -278,7 +278,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
         textColor: Colors.white,
         color: Color(0xFF4736B5),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(twentyDp)),
+            borderRadius: BorderRadius.circular(thirtyDp)),
       ),
     );
   }
