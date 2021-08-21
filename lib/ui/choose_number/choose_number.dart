@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottery_ui/ui/payment/payment_page.dart';
 
@@ -97,7 +98,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
   Widget buildSelectedNumber(number) {
     return Container(
       width: fiftyDp,
-      height: sixtyDp,
+      height: 70,
       margin: EdgeInsets.symmetric(horizontal: fourDp),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -106,9 +107,11 @@ class _ChooseNumberState extends State<ChooseNumber> {
           borderRadius: BorderRadius.circular(twentyFourDp)),
       child: Center(
           child: Text(
-            "$number",
-        style:
-            TextStyle(color: Colors.indigoAccent, fontWeight: FontWeight.w700),
+        "$number",
+        style: TextStyle(
+            color: Color(0xFF4736B5),
+            fontWeight: FontWeight.bold,
+            fontSize: twentyDp),
       )),
     );
   }
@@ -124,44 +127,57 @@ class _ChooseNumberState extends State<ChooseNumber> {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(thirtyDp),
               topRight: Radius.circular(thirtyDp))),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            //time and drop down
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: thirtyDp, horizontal: twentyDp),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  //time ?? compromised
-                  Padding(
-                    padding: const EdgeInsets.only(top: eightDp),
-                    child: Text(
-                      twoPm,
-                      style: TextStyle(color: Colors.black, fontSize: twentyDp),
+      child: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    //time and drop down
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: thirtyDp, horizontal: twentyDp),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          //time ?? compromised
+                          Padding(
+                            padding: const EdgeInsets.only(top: eightDp),
+                            child: Text(
+                              twoPm,
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: twentyDp),
+                            ),
+                          ),
+                          //dropdown
+                          buildDropDown(),
+                        ],
+                      ),
                     ),
-                  ),
-                  //dropdown
-                  buildDropDown(),
-                ],
-              ),
+                    GridView.builder(
+                      itemBuilder: (context, index) {
+                        return buildRoundContainerWithNumber(
+                            listOfNumbers[index]);
+                      },
+                      itemCount: listOfNumbers.length,
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 6,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 2),
+                    ),
+                  ],
+                ),
+                buildPaymentButton()
+              ],
             ),
-            GridView.builder(
-              itemBuilder: (context, index) {
-                return buildRoundContainerWithNumber(listOfNumbers[index]);
-              },
-              itemCount: listOfNumbers.length,
-              shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 6,
-                  mainAxisSpacing: 0.1,
-                  crossAxisSpacing: tenDp),
-            ),
-            buildPaymentButton()
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
@@ -203,7 +219,7 @@ class _ChooseNumberState extends State<ChooseNumber> {
 
   Widget buildRoundContainerWithNumber(number) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: tenDp, vertical: tenDp),
+      margin: EdgeInsets.symmetric(horizontal: eightDp, vertical: eightDp),
       decoration: BoxDecoration(
           //this is manual for UI purpose
           color: number == 12 ||
@@ -217,10 +233,10 @@ class _ChooseNumberState extends State<ChooseNumber> {
             width: 1,
             color: Colors.indigoAccent.withOpacity(0.1),
           ),
-          borderRadius: BorderRadius.circular(twentyFourDp)),
+          borderRadius: BorderRadius.circular(thirtyDp)),
       child: Center(
           child: Text(
-            "$number",
+        "$number",
         style: TextStyle(
             color: number == 12 ||
                     number == 17 ||
@@ -228,8 +244,9 @@ class _ChooseNumberState extends State<ChooseNumber> {
                     number == 28 ||
                     number == 30
                 ? Colors.white
-                : Colors.grey,
-            fontWeight: FontWeight.bold),
+                : Colors.black45,
+            fontWeight: FontWeight.w500,
+            fontSize: 20),
       )),
     );
   }
