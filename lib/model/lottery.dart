@@ -1,5 +1,6 @@
 import 'package:lottery_ui/constants.dart';
 
+///Lottery object representation
 class Lottery {
   final image;
   final title;
@@ -8,6 +9,7 @@ class Lottery {
   final flag;
   final time;
 
+  //constructor
   Lottery(
       {this.image,
       this.title,
