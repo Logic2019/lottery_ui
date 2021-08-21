@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Stack(
           children: [
+            //header / title of home
             Container(
               height: 150,
               decoration: BoxDecoration(color: Color(0xFF4736B5)),
@@ -166,6 +167,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  //displays dummy list of items
   Widget buildListItems(List<Lottery> lottery) {
     return Container(
       decoration: BoxDecoration(
@@ -277,7 +279,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-//custom shape for bottom navigation items
+//custom oval shape for bottom navigation items
 class CustomBottomNavClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
