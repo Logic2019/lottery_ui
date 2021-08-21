@@ -45,6 +45,63 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             buildListItems(lotteryList),
+
+            /* Align(
+              alignment: Alignment.bottomCenter,
+              child: ClipPath(
+                clipper: CustomBottomNavClipper(),
+                child: Container(
+                  height: 115,
+                  padding: EdgeInsets.only(top: 2),
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF4736B5),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: fortyDp,
+                        width: fortyDp,
+                        margin: EdgeInsets.only(
+                            top: 60, bottom: eightDp, right: 30),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(thirtyDp))),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.ac_unit,
+                              color: Color(0xFF4736B5),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: eightDp,right: 30,top: 30),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.home_outlined,
+                              color: Colors.white,size: 30,
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 50),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.person_outline,
+                              color: Colors.white,size: 36,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),*/
           ],
         ),
       ),
@@ -54,7 +111,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: ClipPath(
         clipper: CustomBottomNavClipper(),
         child: Container(
-          height: 80,
+          height: 115,
           padding: EdgeInsets.only(top: 2),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
@@ -67,7 +124,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: fortyDp,
                 width: fortyDp,
-                margin: EdgeInsets.only(top: twentyFourDp, bottom: eightDp),
+                margin: EdgeInsets.only(top: 60, bottom: eightDp, right: 30),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(thirtyDp))),
@@ -79,21 +136,24 @@ class _HomePageState extends State<HomePage> {
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: eightDp),
+                padding:
+                    const EdgeInsets.only(bottom: eightDp, right: 30, top: 30),
                 child: IconButton(
                     onPressed: () {},
                     icon: Icon(
                       Icons.home_outlined,
                       color: Colors.white,
+                      size: 30,
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: eightDp),
+                padding: const EdgeInsets.only(top: 50),
                 child: IconButton(
                     onPressed: () {},
                     icon: Icon(
                       Icons.person_outline,
                       color: Colors.white,
+                      size: 36,
                     )),
               ),
             ],
@@ -203,7 +263,8 @@ class _HomePageState extends State<HomePage> {
                 thickness: 1,
                 endIndent: twentyDp,
                 indent: twentyDp,
-              )
+              ),
+              // SizedBox(height: 20,),
             ],
           );
         },
@@ -218,8 +279,8 @@ class CustomBottomNavClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, 80);
-    path.quadraticBezierTo(size.width / 2, -50, size.width, 80);
+    path.lineTo(0, 110);
+    path.quadraticBezierTo(size.width / 2.2, -30, size.width, 110);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
     return path;
