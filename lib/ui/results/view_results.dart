@@ -39,7 +39,10 @@ class _ViewResultsState extends State<ViewResults> {
                 ),
                 Text(
                   yourResults,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: eighteenDp,
+                      fontWeight: FontWeight.bold),
                 )
               ],
             ),
