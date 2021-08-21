@@ -38,7 +38,10 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(top: thirtyDp),
                   child: Text(
                     lotteryTicket,
-                    style: TextStyle(fontSize: sixteenDp, color: Colors.white),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: twentyDp,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 alignment: Alignment.topCenter,
