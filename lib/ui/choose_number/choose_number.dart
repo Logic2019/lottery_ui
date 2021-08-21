@@ -48,7 +48,9 @@ class _ChooseNumberState extends State<ChooseNumber> {
                 Text(
                   chooseNumber,
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600),
+                      color: Colors.white,
+                      fontSize: eighteenDp,
+                      fontWeight: FontWeight.bold),
                 )
               ],
             ),
